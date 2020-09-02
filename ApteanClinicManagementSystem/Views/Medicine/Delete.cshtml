@@ -1,0 +1,43 @@
+﻿@model ClinicManagementSystemModels.Models.MedicineModel
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicineName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicineName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MedicineCost)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MedicineCost)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <button class="btn btn-danger" onclick="@("location.href='" + Url.Action("Delete", "Medicine" ,new { id = Model.MedicineID }) + "'")">
+                <i class="fas fa-trash-alt"></i> Delete
+            </button>
+            <input type="button" value="Back" class="btn btn-default " onclick="@("location.href='" + Url.Action("Index", "Medicine") + "'")" />
+        </div>
+    }
+</div>

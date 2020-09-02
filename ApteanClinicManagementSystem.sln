@@ -1,0 +1,70 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28729.10
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApteanClinicManagementSystem", "ApteanClinicManagementSystem\ApteanClinicManagementSystem.csproj", "{D07B2236-F9B8-4912-9A8C-C78FF61F94D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApteanClinicManagementSystem.Tests", "ApteanClinicManagementSystem.Tests\ApteanClinicManagementSystem.Tests.csproj", "{216C9776-CF33-4DA4-BEF6-E1C770BED56A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagementSystemModels", "ClinicManagementSystemModels\ClinicManagementSystemModels.csproj", "{82A91253-9CDE-4C86-8057-7CA24EA2047F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagementBusinessLogic", "ClinicManagementBusinessLogic\ClinicManagementBusinessLogic.csproj", "{28F372A0-B48D-4A0C-8856-A38F5C216B41}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClinicManagementDataLayer", "ClinicManagementDataLayer\ClinicManagementDataLayer.csproj", "{A4F67CC4-C279-411E-9ED3-46C1C97561E7}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D07B2236-F9B8-4912-9A8C-C78FF61F94D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D07B2236-F9B8-4912-9A8C-C78FF61F94D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D07B2236-F9B8-4912-9A8C-C78FF61F94D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D07B2236-F9B8-4912-9A8C-C78FF61F94D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{216C9776-CF33-4DA4-BEF6-E1C770BED56A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{216C9776-CF33-4DA4-BEF6-E1C770BED56A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{216C9776-CF33-4DA4-BEF6-E1C770BED56A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{216C9776-CF33-4DA4-BEF6-E1C770BED56A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82A91253-9CDE-4C86-8057-7CA24EA2047F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82A91253-9CDE-4C86-8057-7CA24EA2047F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82A91253-9CDE-4C86-8057-7CA24EA2047F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82A91253-9CDE-4C86-8057-7CA24EA2047F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{28F372A0-B48D-4A0C-8856-A38F5C216B41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{28F372A0-B48D-4A0C-8856-A38F5C216B41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{28F372A0-B48D-4A0C-8856-A38F5C216B41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{28F372A0-B48D-4A0C-8856-A38F5C216B41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4F67CC4-C279-411E-9ED3-46C1C97561E7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4F67CC4-C279-411E-9ED3-46C1C97561E7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4F67CC4-C279-411E-9ED3-46C1C97561E7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4F67CC4-C279-411E-9ED3-46C1C97561E7}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C0947B59-12DA-4770-9A9A-30834BD308CD}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 6
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = http://tfs2018poc1:8080/tfs/engineering
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = ApteanClinicManagementSystem.Tests\\ApteanClinicManagementSystem.Tests.csproj
+		SccProjectName1 = ApteanClinicManagementSystem.Tests
+		SccLocalPath1 = ApteanClinicManagementSystem.Tests
+		SccProjectUniqueName2 = ApteanClinicManagementSystem\\ApteanClinicManagementSystem.csproj
+		SccProjectName2 = ApteanClinicManagementSystem
+		SccLocalPath2 = ApteanClinicManagementSystem
+		SccProjectUniqueName3 = ClinicManagementBusinessLogic\\ClinicManagementBusinessLogic.csproj
+		SccProjectName3 = ClinicManagementBusinessLogic
+		SccLocalPath3 = ClinicManagementBusinessLogic
+		SccProjectUniqueName4 = ClinicManagementDataLayer\\ClinicManagementDataLayer.csproj
+		SccProjectName4 = ClinicManagementDataLayer
+		SccLocalPath4 = ClinicManagementDataLayer
+		SccProjectUniqueName5 = ClinicManagementSystemModels\\ClinicManagementSystemModels.csproj
+		SccProjectName5 = ClinicManagementSystemModels
+		SccLocalPath5 = ClinicManagementSystemModels
+	EndGlobalSection
+EndGlobal

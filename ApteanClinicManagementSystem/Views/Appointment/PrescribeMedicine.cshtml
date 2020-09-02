@@ -1,0 +1,62 @@
+﻿@model ApteanClinicManagementSystem.Models.PrescriptionViewModel
+
+@{
+    ViewBag.Title = "Prescribe Medicine";
+}
+
+<h2>Prescribe Medicine</h2>
+@if(ViewBag.Message != null)
+{
+    <div style="font-size:20px;color:red">@ViewBag.Message</div>
+}
+<hr />
+@using (Html.BeginForm("PrescribeMedicine", "Appointment", FormMethod.Post))
+{
+    <table id="pageTable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayName("#")
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Medicines[0].MedicineName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Medicines[0].Quantity)
+                    
+                </th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.Medicines.Count; i++)
+            {
+            <tr>
+                <td>
+                    @Html.CheckBoxFor(model => Model.Medicines[i].Selected)
+                </td>
+                <td>
+                    @Html.DisplayFor(model => Model.Medicines[i].MedicineName)
+                </td>
+                <td>
+
+                    @Html.EditorFor(model => Model.Medicines[i].Quantity)
+                    @Html.ValidationMessageFor(model => Model.Medicines[i].Quantity)
+                </td>
+                @Html.HiddenFor(model => Model.Medicines[i].MedicineId)
+                @Html.HiddenFor(model => Model.Medicines[i].Price)
+                @Html.HiddenFor(model=>Model.Medicines[i].MedicineName)
+            </tr>
+            }
+        </tbody>
+    </table>
+    <hr />
+    @Html.HiddenFor(model => model.PrescriptionId)
+    @Html.HiddenFor(model => model.AppointmentID)
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Prescribe" class="btn btn-success" />
+        </div>
+    </div>
+}
+<script src="~/Scripts/jsForPrescribeMedicine.js"></script>

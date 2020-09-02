@@ -1,0 +1,32 @@
+﻿@model ApteanClinicManagementSystem.Models.ReportViewModel
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>FiscalReports</title>
+</head>
+<body>
+    <table id="pageTable" class="table table-striped table-bordered" style="width:100%">
+        <thead>
+            <tr>
+                <th>@Html.DisplayName("PatientId")</th>
+                <th>@Html.DisplayName("PatientName")</th>
+                <th>@Html.DisplayName("Payment")</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (int i = 0; i < Model.PatientPayment.Count; i++)
+            {
+                <tr>
+                    <td>@Html.DisplayFor(model => Model.PatientPayment[i].PatientId)</td>
+                    <td>@Html.DisplayFor(model => Model.PatientPayment[i].PatientName)</td>
+                    <td>@Html.DisplayFor(model => Model.PatientPayment[i].Amount)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+

@@ -1,0 +1,11 @@
+﻿@using ClinicManagementSystemModels.Models;
+@model IEnumerable<ClinicManagementSystemModels.Models.AppointmentModel>
+
+@{
+    ViewBag.Title = "ViewAppointments";
+}
+
+<h2>View Appointments</h2>
+<hr />
+
+@Html.Partial("_AppointmentList", Model)

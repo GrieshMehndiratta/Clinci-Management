@@ -1,0 +1,73 @@
+﻿@using ClinicManagementSystemModels.Models;
+@model ClinicManagementSystemModels.Models.AppointmentModel
+@using ClinicManagementBusinessLogic;
+
+@{
+    ViewBag.Title = "DeleteAppointment";
+    var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+    ViewBag.Role = ticket.UserData.ToString();
+}
+
+<h2>Appointment Details</h2>
+<hr />
+@if (ViewBag.Role == "Patient" && Model.AppointmentStatus != AppointmentModel.Status.Cancelled)
+{
+    <h3>Are you sure you want to cancel?</h3>
+}
+
+<div class="col-md-offset-3 col-md-6 " style="padding-bottom:2%">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>Patient Name:</b> @Html.DisplayFor(model => model.Patient.UserDetails.FullName)
+        </li>
+
+        <li class="list-group-item">
+            <b>Doctor Name:</b> @Html.DisplayFor(model => model.Doctor.UserDetails.FullName)
+        </li>
+
+        <li class="list-group-item">
+            <b>Appointment Date:</b> @{
+                var date = Model.AppointmentDate.ToString("dd/MMM/yyyy");
+                @date
+            }
+        </li>
+
+        <li class="list-group-item">
+            <b>Appointment Time:</b> @{
+                var time = Model.AppointmentTime.ToString(@"hh\:mm");
+                @time
+            }
+        </li>
+
+        <li class="list-group-item">
+            <b>Details:</b> @Model.Details
+        </li>
+
+        <li class="list-group-item">
+            <b>Status:</b> @Html.DisplayFor(model => model.AppointmentStatus)
+        </li>
+
+    </ul>
+
+
+
+    @{
+        Prescription prescription = new Prescription();
+        MedicalHistoryBuisnessLogic medicalHistory = new MedicalHistoryBuisnessLogic();
+    }
+    @if (ViewBag.Role == "Patient" && Model.AppointmentStatus != ClinicManagementSystemModels.Models.AppointmentModel.Status.Cancelled)
+    {
+        <span><input type="submit" value="Cancel Appointment" class="btn btn-danger" /></span>
+    }
+    @if ((ViewBag.Role == "Admin" || ViewBag.Role == "Doctor" || ViewBag.Role == "Nurse") && Model.AppointmentDate.Date <= DateTime.Now.Date && Model.AppointmentStatus == AppointmentModel.Status.Approved && (prescription.CheckPrescription(Model.AppointmentId)))
+    {
+        <button class="btn btn-primary" onclick="@("location.href='" + Url.Action("PrescribeMedicine", new { id = Model.AppointmentId }) + "'")"><i class="far fa-edit"></i>Prescibe Medicicne</button>
+    }
+    @if ((ViewBag.Role == "Admin" || ViewBag.Role == "Doctor") && Model.AppointmentDate.Date <= DateTime.Now.Date && (Model.AppointmentStatus == AppointmentModel.Status.Approved || Model.AppointmentStatus == AppointmentModel.Status.Closed) && !(medicalHistory.CheckMedicalHistory(Model.AppointmentId)))
+    {
+        <button class="btn btn-primary" onclick="@("location.href='" + Url.Action( "Create", "MedicalHistory", new { id = Model.AppointmentId }) + "'")"><i class="far fa-edit"></i>Add Medical Observations</button>
+    }
+    <input type="button" value="Back" class="btn btn-default" onclick="@("location.href='"+ Url.Action("ViewAppointments","Appointment")+ "'")" />
+</div>

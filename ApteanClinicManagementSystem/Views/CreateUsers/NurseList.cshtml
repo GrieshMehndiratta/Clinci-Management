@@ -1,0 +1,46 @@
+﻿@model IEnumerable<ClinicManagementSystemModels.Models.NurseModel>
+
+@{
+    ViewBag.Title = "Nurse List";
+}
+
+
+
+<h2>Nurse List</h2>
+<hr />
+<table id="pageTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Address</th>
+            <th>City</th>
+            <th>
+                <button class="btn btn-primary" onclick="@("location.href='"+ Url.Action("AddNurse","CreateUsers")+ "'")"><i class="far fa-edit"></i> Add</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetails.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetails.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetails.Address)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetails.City)
+                </td>
+                <td>
+                    <button class="btn btn-default" onclick="@("location.href='"+ Url.Action("NurseDetails","CreateUsers",new { id = item.NurseId })+ "'")"><i class="fas fa-folder"></i> View</button>
+                    <button class="btn btn-danger" onclick="@("location.href='"+ Url.Action("DeleteNurse","CreateUsers",new { id = item.NurseId })+ "'")"><i class="fas fa-trash-alt"></i> Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

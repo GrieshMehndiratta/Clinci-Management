@@ -1,0 +1,27 @@
+﻿@model ClinicManagementSystemModels.Models.NurseModel
+
+@{
+    ViewBag.Title = "Nurse Details";
+}
+
+<h2>Nurse Details</h2>
+<hr />
+<div class="col-md-offset-3 col-md-6 " style="padding-bottom:2%">
+    
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>Name:</b> @Html.DisplayFor(model => model.UserDetails.FullName)
+        </li>
+        <li class="list-group-item">
+            <b>Email Id:</b> @Html.DisplayFor(model => model.UserDetails.EmailId)
+        </li>
+        <li class="list-group-item">
+            <b>Phone:</b> @Html.DisplayFor(model => model.UserDetails.PhoneNo)
+        </li>
+        <li class="list-group-item">
+            <b>Address:</b> @Html.DisplayFor(model => model.UserDetails.Address)
+        </li>
+    </ul>
+    <button class="btn btn-primary " onclick="@("location.href='" + Url.Action("EditNurse", "CreateUsers", new { id = Model.NurseId }) + "'")"><i class="far fa-edit">Edit</i></button>
+    <input type="button" value="Back" class="btn btn-default " onclick="@("location.href='" + Url.Action("NurseList", "CreateUsers") + "'")" />
+</div>

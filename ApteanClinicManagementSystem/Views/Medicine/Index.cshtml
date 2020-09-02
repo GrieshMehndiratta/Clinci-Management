@@ -1,0 +1,41 @@
+﻿@model IEnumerable<ClinicManagementSystemModels.Models.MedicineModel>
+
+@{
+    ViewBag.Title = "Medicine List";
+}
+<h2>Medicine List</h2>
+
+<hr />
+<table id="pageTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicineName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MedicineCost)
+            </th>
+            <th class="text-center">
+                <button class="btn btn-primary" onclick="@("location.href='"+ Url.Action("Create","Medicine")+ "'")"><i class="far fa-edit"></i> Add</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicineName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MedicineCost)
+                </td>
+                <td class="text-center">
+                    <button class="btn btn-primary" onclick="@("location.href='"+ Url.Action("Edit","Medicine",new { id = item.MedicineID })+ "'")"><i class="far fa-edit"></i> Edit</button>
+                    <button class="btn btn-default" onclick="@("location.href='"+ Url.Action("Details","Medicine",new { id = item.MedicineID })+ "'")"><i class="fas fa-folder"></i> Details</button>
+                    <button class="btn btn-danger" onclick="@("location.href='"+ Url.Action("Delete","Medicine",new { id = item.MedicineID })+ "'")"><i class="fas fa-trash-alt"></i> Delete</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

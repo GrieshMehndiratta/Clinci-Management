@@ -1,0 +1,104 @@
+﻿@model ApteanClinicManagementSystem.Models.EditPatientViewModel
+
+@{
+    ViewBag.Title = "Patient Details";
+}
+
+<h2>Patient Details</h2>
+<hr />
+<div class="col-sm-4" style="color:rgb(109,134,159);">
+    <span class="glyphicon glyphicon-user glyphicon-squared "></span>
+    <ul style="padding-left:0px">
+        <li style="font-size:xx-large">
+            @Html.DisplayFor(model => model.Name)
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-user"></span>Patient Id: @Html.DisplayFor(model => model.PatientId)
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-user"></span>Sex: @Html.DisplayFor(model => model.Sex)
+        </li>
+        <li>
+            <span class="glyphicon glyphicon-user"></span>@Html.DisplayNameFor(model => model.Age): @Html.DisplayFor(model => model.Age)
+        </li>
+
+        <li>
+            <span class="glyphicon glyphicon-user"></span> @Html.DisplayNameFor(model => model.Height): @Html.DisplayFor(model => model.Height)
+        </li>
+
+        <li>
+            <span class="glyphicon glyphicon-user"></span>@Html.DisplayNameFor(model => model.Weight): @Html.DisplayFor(model => model.Weight)
+        </li>
+
+        <li>
+            <span class="glyphicon glyphicon-map-marker"></span>@Html.DisplayNameFor(model => model.Address): @Html.DisplayFor(model => model.Address)
+        </li>
+
+        <li>
+            <span class="glyphicon glyphicon-earphone"></span>Phone: @Html.DisplayFor(model => model.PhoneNo)
+        </li>
+
+        <li>
+            <span class="glyphicon glyphicon-dashboard"></span>Registration Date: @Html.DisplayFor(model => model.RegistrationDate)
+        </li>
+
+
+    </ul>
+    <p>
+        <button style="margin-left:0px" class="btn btn-success" onclick="location.href='@Url.Action("EditPatient", "CreateUsers",new { id = Model.PatientId })'"><i class="far fa-edit" )"></i> Edit</button>
+        <input type="button" value="Back" class="btn btn-default" onclick="@("location.href='" + Url.Action("PatientList", "CreateUsers") + "'")" />
+    </p>
+</div>
+<div class="col-sm-4">
+    <h3>
+        Appointment
+    </h3>
+    <hr />
+    <div class="container">
+        <a data-toggle="modal" href="#appModal"> Patient Appointments:<span class="badge" style="background-color:red">@Html.DisplayFor(model => model.AppointmentCount)</span></a>
+    </div>
+</div>
+
+<div class="col-sm-4">
+    <h3>
+        Patient's Medical History
+    </h3>
+    <hr />
+    <div class="container" id="medHistory">
+        <a data-toggle="modal" href="#medModal">Medical History:<span class="badge" style="background-color:red">@Html.DisplayFor(model => model.MedicalHistoyCount)</span></a>
+    </div>
+</div>
+<div class="modal fade" id="appModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Appointment List</h4>
+            </div>
+            <div class="modal-body">
+                @{Html.RenderAction("AppointmentListForPatientList", "Appointment", Model.PatientId);}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="medModal" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Medical History</h4>
+            </div>
+            <div class="modal-body">
+                @{Html.RenderAction("PatientDetailsForList", "MedicalHistory", Model.PatientId);}
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,104 @@
+﻿@model ApteanClinicManagementSystem.Models.CreateAppointmentViewModel
+@using Vereyon.Web;
+@{
+    ViewBag.Title = "Book Appointment";
+    var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+    ViewBag.Role = ticket.UserData.ToString();
+}
+
+<h2>Book Appoinment</h2>
+@Html.RenderFlashMessages()
+<span style="color:red">
+    @if (TempData["ErrorMessage"] != null)
+    {
+        @TempData["ErrorMessage"].ToString()
+    }
+    @ViewBag.ErrorMessage
+</span>
+<span style="color:green">
+    @ViewBag.SuccessMessage
+</span>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <hr />
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.TokenNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-4">
+            @Html.TextBoxFor(model => model.TokenNo, new { disabled = "disabled", @readonly = "readonly" ,@class="form-control"})
+            @Html.ValidationMessageFor(model => model.TokenNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        @if (ViewBag.Role == "Admin" || ViewBag.Role == "Nurse")
+        {
+            <div class="form-group">
+                @Html.LabelFor(model => model.Username, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-4">
+                    @Html.EditorFor(model => model.Username, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Specializations, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        }
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Specializations, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EnumDropDownListFor(model => model.Specializations, "-- Select Specialization --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Specializations, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DoctorName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.DoctorId, new SelectList(Model.Doctors, "DoctorId", "UserDetails.FullName"), htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Doctors, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointmentDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.EditorFor(model => model.AppointmentDate, new { htmlAttributes = new { @class = "form-control", @id = "AppointmentDatePicker" } })
+                @Html.ValidationMessageFor(model => model.AppointmentDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.AppointmentTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.AppointmentTime, new SelectList(Model.AppointmentTime), "-- Select Appointment Time --", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.AppointmentTime, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Details, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-4">
+                @Html.TextAreaFor(model => model.Details, new { placeholder = "Details", @class = "form-control", rows = "5" })
+                @Html.ValidationMessageFor(model => model.Details, "", new { @class = "text-danger", rows = "50" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/Scripts/jsForAppointment.js")
+}

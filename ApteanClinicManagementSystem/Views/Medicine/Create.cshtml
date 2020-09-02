@@ -1,0 +1,45 @@
+﻿@model ClinicManagementSystemModels.Models.MedicineModel
+
+@{
+    ViewBag.Title = "Add Medicine";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h2>Add Medicine</h2>
+        <span style="color:red">            
+            @ViewBag.ErrorMessage
+        </span>
+        <span style="color:green">
+            @ViewBag.SuccessMessage
+        </span>
+
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.Label("Medicine Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.MedicineName, new { htmlAttributes = new { placeholder = "Medicine Name", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MedicineName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.MedicineCost, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2">
+                @Html.EditorFor(model => model.MedicineCost, new { htmlAttributes = new { placeholder = "Cost", @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.MedicineCost, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <hr />
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Add" class="btn btn-success" />
+            </div>
+        </div>
+    </div>
+}
+

@@ -1,0 +1,44 @@
+﻿@model ClinicManagementSystemModels.Models.NurseModel
+
+@{
+    ViewBag.Title = "DeleteNurse";
+}
+
+<h2>DeleteNurse</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Name
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetails.FullName)
+        </dd>
+        <dt>
+            Email Id
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetails.EmailId)
+        </dd>
+        <dt>
+            Phone
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetails.PhoneNo)
+        </dd>
+        <dt>
+            Address
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserDetails.Address)
+        </dd>
+    </dl>
+    <button class="btn btn-danger" onclick="@("location.href='"+ Url.Action("DeleteNurseConfirmed","CreateUsers",new { id = Model.NurseId })+ "'")"><i class="fas fa-trash-alt"></i> Delete</button>
+    <input type="button" value="Back" class="btn btn-default" onclick="@("location.href='"+ Url.Action("NurseList","CreateUsers")+ "'")">
+</div>

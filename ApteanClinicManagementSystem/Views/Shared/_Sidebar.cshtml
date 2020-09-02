@@ -1,0 +1,29 @@
+﻿<div class="navbar-header container" onclick="@("location.href='"+ Url.Action("Dashboard","Login")+ "'")">
+    <div class="glyphicon-ring">
+        <span class="glyphicon glyphicon-list-alt glyphicon-bordered"></span>
+    </div>
+    <span class="heading">Aptean Clinic</span>
+</div>
+<div class="container">
+    <table>
+        <tr>
+            <td rowspan="2">
+                <div class="glyphicon-ring-big ">
+                    <span class="glyphicon glyphicon-user glyphicon-bordered "></span>
+                </div>
+            </td>
+            <td>
+                <div class="welcome-data">Welcome</div>
+                <div style="max-width:100px">
+                    @* put user-type and user-name here *@
+                    @ViewBag.Role @ViewBag.UserName
+                </div>
+            </td>
+        </tr>
+
+    </table>
+</div>
+<div class="menu-items container-fluid">
+   
+    @{ Html.RenderAction("GetMenuForUser", "Home"); }
+</div>

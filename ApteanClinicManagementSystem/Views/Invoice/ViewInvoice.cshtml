@@ -1,0 +1,111 @@
+﻿@model ApteanClinicManagementSystem.Models.InvoiceViewModel
+
+@{
+    ViewBag.Title = "ViewInvoice";
+    var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+}
+
+<h2>Patient Invoice</h2>
+@if (ViewBag.Message != null)
+{
+    <div>
+        <p>@ViewBag.Message</p>
+    </div>
+}
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Invoice Number:</label>
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceNumber)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Name)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Age)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Age)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Patient.Phone)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Patient.Phone)
+        </dd>
+    </dl>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.InvoiceDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.InvoiceDate)
+        </dd>
+    </dl>
+    <hr style="color:darkblue" />
+    <table class="table table-striped" style="color:black;">
+        <tr>
+            <th>
+                Medicine
+            </th>
+            <th>
+                Rate
+            </th>
+            <th>
+                Quantity
+            </th>
+            <th>
+                Price
+            </th>
+        </tr>
+        <tr>
+            <td>@Html.DisplayFor(model => model.Medicines[Model.Medicines.Count - 1].Medicine)</td>
+            <td>@Html.DisplayFor(model => model.Medicines[Model.Medicines.Count - 1].Rate)</td>
+            <td>@Html.Label("-")</td>
+            <td>@Html.DisplayFor(model => model.Medicines[Model.Medicines.Count - 1].Price)</td>
+        </tr>
+        @for (int i = 0; i < Model.Medicines.Count - 1; i++)
+        {
+            <tr>
+                <td>@Html.DisplayFor(model => Model.Medicines[i].Medicine)</td>
+                <td>@Html.DisplayFor(model => Model.Medicines[i].Rate)</td>
+                <td>@Html.DisplayFor(model => Model.Medicines[i].Quantity)</td>
+                <td>@Html.DisplayFor(model => Model.Medicines[i].Price)</td>
+            </tr>
+        }
+        <tr>
+            <td></td>
+            <td></td>
+            <td>@Html.DisplayNameFor(model => model.Discount)</td>
+            <td>@Html.DisplayFor(model => model.Discount)</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+            <td>@Html.DisplayNameFor(model => model.Total)</td>
+            <td>@Html.DisplayFor(model => model.Total)</td>
+        </tr>
+    </table>
+    @if ((ticket.UserData == "Nurse" || ticket.UserData == "Admin") && Model.status == ClinicManagementSystemModels.Models.InvoiceStatus.UnPaid)
+    {
+        <div>
+            <button class="btn btn-primary" onclick="@("location.href='"+ Url.Action("TakePayment","Invoice",new { InvoiceId = Model.InvoiceNumber})+ "'")"><i class="far fa-edit"></i> Take Payment</button>
+        </div>
+    }
+    <div>
+        <button class="btn btn-primary" onclick="@("location.href='"+ Url.Action("ListInvoices","Invoice")+ "'")"><i class="glyphicon-fast-backward"></i> Back</button>
+    </div>
+</div>

@@ -1,0 +1,50 @@
+﻿body {
+    margin: 20pt !important;
+    background-image: url(../Images/loginBackground.jpg);
+    background-size: cover;
+    background-attachment: fixed
+}
+
+.error {
+    color: red;
+}
+.login-form {
+    position:fixed;
+    top:20%;
+    display: block;
+    color: rgb(109,134,159);
+    padding: 20px;
+    vertical-align: central;
+    margin-left: 25%;
+    width: 50%;
+    border: 3px solid #f1f1f1;
+    background-color: rgba(247,247,247,0.8);
+}
+
+    .login-form fieldset legend {
+        color: rgb(109,134,159);
+        text-align: center;
+    }
+
+    .login-form .errorMessage {
+        color: red;
+    }
+
+.footerimg {
+    width: 20px;
+    height: 30px;
+}
+
+.footer {
+    display: block;
+    padding: 40px;
+    margin-left: 35%;
+    align-content: center;
+    text-align: center;
+    color: ActiveCaption;
+}
+
+    .footer img {
+        width: 40px;
+        height: 30px;
+    }

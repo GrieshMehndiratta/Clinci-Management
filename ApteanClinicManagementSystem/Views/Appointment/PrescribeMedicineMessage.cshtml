@@ -1,0 +1,12 @@
+﻿<h2>@ViewBag.Message</h2>
+
+@Html.ActionLink("Back to Dashboard","Dashboard","Login")
+@if (ViewBag.Message != null)
+{
+    <script type="text/javascript">
+
+            window.onload = function () {
+                alert("@ViewBag.Message");
+            };
+    </script>
+}

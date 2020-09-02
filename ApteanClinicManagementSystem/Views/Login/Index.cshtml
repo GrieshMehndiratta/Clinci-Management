@@ -1,0 +1,72 @@
+﻿@model  ApteanClinicManagementSystem.Models.LoginUserViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    @Styles.Render("~/Content/login")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.7.0/css/all.css' integrity='sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ' crossorigin='anonymous'>
+</head>
+<body>
+    <div class="login-form container">
+        <center>
+
+            @using (Html.BeginForm("Index", "Login", FormMethod.Post))
+            {
+                @Html.AntiForgeryToken()
+                <div style="max-width: 400px;">
+                    <fieldset>
+                        <legend><h2>Login Form</h2></legend>
+                        <div class="errorMessage">
+                            <span>@ViewBag.ErrorMessage</span>
+                        </div>
+                        @Html.TextBoxFor(m => m.UserName, new { placeholder = "UserName", @class = "form-control" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "error" })
+                        </div>
+                        <br />
+                        @Html.PasswordFor(m => m.Password, new { placeholder = "Password", @class = "form-control" })
+                        <div>
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "error" })
+                        </div>
+                        <br />
+                        <div class="form-group">
+                            <input type="hidden" name="ReturnUrl" value="@Request.QueryString["ReturnUrl"]" />
+                            <input type="submit" value="Log in" class="btn btn-default" />
+                            &nbsp;&nbsp;&nbsp;
+                            @Html.CheckBoxFor(m => m.RememberMe)
+                            @Html.Label("Remember me?")
+                        </div>
+
+                        <br />
+
+                    </fieldset>
+                    @Html.ActionLink("Forgot Password", "ResetPassword", "Login")
+                </div>
+            }
+
+            <hr />
+            @Html.ActionLink("New to Site? Create Account", "RegisterPatient", "CreateUsers")
+            <br />
+
+            <h2><i class="far fa-hospital"></i>Clinic Management System</h2>
+        </center>
+    </div>
+    @Scripts.Render("~/bundles/js")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    @if (@ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            $(function () {
+                $("#dvMessage").show();
+            });
+        </script>
+    }
+</body>
+</html>

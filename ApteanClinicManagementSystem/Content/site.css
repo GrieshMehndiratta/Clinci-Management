@@ -1,0 +1,342 @@
+﻿/*#region Body*/
+body {
+    background-color: rgb(247,247,247);
+}
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 600px;
+}
+/*#endregion */
+
+/*#region CSS for Forms*/
+.body-content form, h2,h3 {
+    color: rgb(109,134,159);
+}
+
+.body-content .form-group {
+    margin-left: 20%;
+}
+
+.body-content .form-control {
+    width: 500px;
+}
+
+@media (max-width:768px) {
+    .body-content .form-control {
+        float: left;
+        width: 70%;
+    }
+}
+
+.body-content .btn-success {
+    margin-left: 15%;
+    width: initial;
+}
+/*#endregion*/
+/*#region Wrapper*/
+
+#wrapper {
+    padding-left: 0;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+    #wrapper.toggled {
+        padding-left: 250px;
+    }
+
+#sidebar-wrapper {
+    z-index: 1000;
+    position: fixed;
+    left: 250px;
+    width: 0;
+    height: 100%;
+    margin-left: -250px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    background: rgb(42, 63, 82);
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+    color: white;
+}
+
+#wrapper.toggled #sidebar-wrapper {
+    width: 250px;
+}
+
+#page-content-wrapper {
+    width: 100%;
+    position: absolute;
+}
+
+#wrapper.toggled #page-content-wrapper {
+    position: absolute;
+    margin-right: -250px;
+}
+
+/*#endregion */
+
+/*#region Media Queries for wrapper and sidebar*/
+@media(min-width:375px) {
+    .body-content form-control {
+        width: unset;
+    }
+
+    #wrapper {
+        padding-left: 250px;
+    }
+
+        #wrapper.toggled {
+            padding-left: 0;
+        }
+
+    #sidebar-wrapper {
+        width: 250px;
+    }
+
+    #wrapper.toggled #sidebar-wrapper {
+        width: 0;
+    }
+
+    #page-content-wrapper {
+        position: relative;
+    }
+
+    #wrapper.toggled #page-content-wrapper {
+        position: relative;
+        margin-right: 0;
+    }
+
+    .body-content {
+        z-index: -1;
+    }
+
+    .navbar-right {
+        float: right;
+        display: inline-flex;
+    }
+}
+/*#endregion */
+
+/*#region Glyphicon*/
+
+.glyphicon-menu-hamburger {
+    font-size: 20px;
+    padding-top: 15px;
+}
+/**CSS FOR THE RING**/
+.glyphicon-ring-big {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    color: grey;
+    display: inline-table;
+    text-align: center;
+    background: white;
+}
+
+    .glyphicon-ring-big .glyphicon-bordered {
+        font-size: 50px;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+
+.glyphicon-ring {
+    width: 50px;
+    height: 50px;
+    color: white;
+    display: inline-table;
+    text-align: center;
+}
+    /**CSS FOR ICON WITH NO BACKGROUND COLOR**/
+
+    .glyphicon-ring .glyphicon-bordered {
+        font-size: 20px;
+        border-radius: 50%;
+        border: 2px solid white;
+        vertical-align: middle;
+        display: table-cell;
+    }
+
+    .glyphicon-ring .glyphicon-not-bordered {
+        font-size: 20px;
+        vertical-align: middle;
+        display: table-cell;
+        border: none;
+    }
+
+.glyphicon-grey {
+    color: grey;
+}
+
+.glyphicon-squared {
+    color: grey;
+    font-size: 180px;
+    background-color: #eee;
+    border: 1px solid white;
+    border-radius: 0px;
+    height: 200px !important;
+    padding-top: 17px;
+    text-align: center;
+    width: 200px !important;
+}
+/*#endregion */
+
+/*#region Top-Navbar*/
+.navbar {
+    background-color: #EDEDED;
+    border: 0px solid #EDEDED;
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.navbar-right {
+    margin-right: inherit;
+}
+
+.body-content {
+    z-index: -1;
+}
+/*#endregion*/
+
+/*#region SideBar Header*/
+.heading {
+    font-size: 25px;
+}
+
+td {
+    align-content: center;
+    padding: 10px;
+}
+/*#endregion*/
+
+/*#region Menu-Items*/
+.menu-items {
+    margin-top: 50px;
+    background-color: rgb(0,158,206);
+    padding: 0px;
+}
+
+    .menu-items ul, li {
+        list-style-type: none;
+        padding: 10px;
+    }
+
+    .menu-items a {
+        color: white;
+        font-size: medium;
+    }
+
+a[data-toggle="collapse"] {
+    position: relative;
+}
+
+.menu-items .dropdown-toggle::after {
+    display: block;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+/*#endregion*/
+
+/*#region Dashboard*/
+.main-div {
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.div-card {
+    margin: 5px;
+    display: inline;
+    width: 350px;
+    background-color: white;
+    height: 160px;
+    border-radius: 5px;
+}
+
+.inner-top {
+    align-content: space-around;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 5px
+}
+
+.inner-bottom {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 5px;
+}
+
+.custom-dashboard-icon {
+    font-size: 70px;
+    color: gray;
+}
+
+.text-color {
+    color: #337AB7;
+}
+
+.upper-text {
+    font-size: 50px;
+}
+
+.lower-text {
+    font-size: 25px;
+    color: gray;
+}
+/*#endregion */
+
+/*#region CSS for Lists*/
+
+.status-active {
+    background-color: rgb(18,107,14);
+    border-radius: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    color: white
+}
+
+.status-inactive {
+    background-color: rgb(178,34,34);
+    border-radius: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    color: white;
+}
+
+.status-pending {
+    background-color: rgb(174,254,49);
+    border-radius: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 2px;
+    padding-top: 2px;
+    color: white
+}
+
+.save {
+    background-color: rgb(38,185,154);
+    border-color: rgb(18,107,14);
+    color: white;
+    height: 25px;
+}

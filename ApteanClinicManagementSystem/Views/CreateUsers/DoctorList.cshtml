@@ -1,0 +1,81 @@
+﻿@using ClinicManagementBusinessLogic;
+@model IEnumerable<ClinicManagementSystemModels.Models.DoctorModel>
+@{
+
+    var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+    ViewBag.Role = ticket.UserData.ToString();
+}
+@{
+    ViewBag.Title = "DoctorList";
+}
+<h2>Doctor List</h2>
+<hr />
+<table id="pageTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Name
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Specialization)
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserDetails.AccountStatus)
+            </th>
+            <th>
+                <button class="btn btn-primary" onclick="location.href='@Url.Action("AddDoctor", "CreateUsers")'"><i class="far fa-edit" )"></i> Add</button>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetails.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserDetails.PhoneNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Specialization)
+                </td>
+                <td>
+                    @{ 
+                        ManageUsers manageUsers = new ManageUsers();
+                    }
+                    @if (manageUsers.IsDoctorAvailable(item.DoctorId))
+                    {
+                        <span class="status-active">
+                            Available
+                        </span>
+                    }
+                    else
+                    {
+                        <span class="status-inactive">Unavailable</span>
+                    }
+                </td>
+                <td>
+                    @if (item.UserDetails.AccountStatus == false)
+                    {
+                        <span class="status-active">Active</span>
+                    }
+                    else
+                    {
+                        <span class="status-inactive">InActive</span>
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-default" onclick="@("location.href='"+ Url.Action("DoctorDetails","CreateUsers",new { id = item.DoctorId })+ "'")"><i class="fas fa-folder"></i> Details</button>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,118 @@
+﻿@using ClinicManagementSystemModels.Models;
+@model IEnumerable<ClinicManagementSystemModels.Models.AppointmentModel>
+@{
+
+    var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+    string role = ticket.UserData.ToString();
+}
+
+<table class="pagedTable table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Token
+            </th>
+            <th>
+                Patient Name
+            </th>
+            <th>
+                Phone
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Time
+            </th>
+            @if (!role.Equals("Doctor"))
+            {
+                <th>
+
+                    Doctor
+
+                </th>
+            }
+            <th>
+                Details
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.UserDetails.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.UserDetails.PhoneNo)
+                </td>
+                <td>
+                    @{
+                        var date = @item.AppointmentDate.ToShortDateString();
+                    }
+                    @Html.DisplayFor(dates => date)
+                </td>
+                <td>
+                    @{
+                        var timeFormat = item.AppointmentTime.ToString(@"hh\:mm");
+                        @timeFormat
+                    }
+                </td>
+                @if (!role.Equals("Doctor"))
+                {
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Doctor.UserDetails.FullName)
+                    </td>
+                }
+                <td>
+                    @Html.DisplayFor(modelItem => item.Details)
+                </td>
+                <td>
+                    @if (item.AppointmentStatus == AppointmentModel.Status.Approved)
+                    {
+                        <span class="status-active">@Html.DisplayFor(modelItem => item.AppointmentStatus)</span>
+                    }
+                    else if (item.AppointmentStatus == AppointmentModel.Status.Pending)
+                    {
+                        <span class="status-pending">@Html.DisplayFor(modelItem => item.AppointmentStatus)</span>
+                    }
+                    else if (item.AppointmentStatus == AppointmentModel.Status.Cancelled)
+                    {
+                        <span class="status-inactive">@Html.DisplayFor(modelItem => item.AppointmentStatus)</span>
+                    }
+                    else if (item.AppointmentStatus == AppointmentModel.Status.Closed)
+                    {
+                        <span class="status-inactive">@Html.DisplayFor(modelItem => item.AppointmentStatus)</span>
+                    }
+
+                </td>
+                <td>
+                    @if ((role == "Admin" || role == "Doctor") && item.AppointmentDate >= DateTime.Now && item.AppointmentStatus != AppointmentModel.Status.Closed && item.AppointmentStatus != AppointmentModel.Status.Cancelled)
+                    {
+                        <button class="btn btn-primary" onclick="@("location.href='" + Url.Action("EditAppointment", "Appointment", new { id = item.AppointmentId }) + "'")"><i class="far fa-edit"></i> Edit</button>
+                    }
+                    else if (role == "Admin" || role == "Doctor")
+                    {
+                        <button class="btn btn-primary" disabled title="Can't edit past appointments"><i class="far fa-edit"></i> Edit</button>
+                    }
+                    <button class="btn btn-default" onclick="@("location.href='"+ Url.Action("DeleteAppointment","Appointment",new { id = item.AppointmentId })+ "'")"><i class="fas fa-folder"></i> Details</button>
+                    @if (role == "Patient" && item.AppointmentDate >= DateTime.Now && item.AppointmentStatus != AppointmentModel.Status.Cancelled && item.AppointmentStatus != AppointmentModel.Status.Closed)
+                    {
+                        <button class="btn btn-danger" onclick="@("location.href='" + Url.Action("DeleteAppointment", "Appointment", new { id = item.AppointmentId }) + "'")"><i class="fas fa-trash-alt"></i> Cancel</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

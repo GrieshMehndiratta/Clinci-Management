@@ -1,0 +1,72 @@
+﻿@using ClinicManagementSystemModels.Models;
+@model IEnumerable<ClinicManagementSystemModels.Models.AppointmentModel>
+
+@{
+    Layout = null;
+}
+
+<table id="pageTable" class="table table-striped table-bordered" style="width:100%">
+    <thead>
+        <tr>
+            <th>
+                Doctor
+            </th>
+            <th>
+                Date
+            </th>
+            <th>
+                Time
+            </th>
+            <th>
+                Status
+            </th>
+            <th>
+                <button  class="btn btn-primary"   onclick="@("location.href='"+ Url.Action("CreateAppointmentView","Appointment")+ "'")"><i class="fas fa-folder"></i> Add</button>
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.Doctor.UserDetails.FullName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AppointmentTime)
+                </td>
+                <td>
+                    @if (item.AppointmentStatus == AppointmentModel.Status.Pending)
+                    {
+                        <span class="status-pending">Pending</span>
+                    }
+                    else if (item.AppointmentStatus == AppointmentModel.Status.Approved)
+                    {
+                        <span class="status-active">Approved</span>
+                    }
+                    else if (item.AppointmentStatus == AppointmentModel.Status.Cancelled)
+                    {
+                        <span class="status-inactive">Cancelled</span>
+                    }
+                    else
+                    {
+                        <p>Invalid Status</p>
+                    }
+                </td>
+                <td>
+                    <button class="btn btn-primary" onclick="@("location.href='"+ Url.Action("DeleteAppointment","Appointment",new { id = item.AppointmentId })+ "'")"><i class="fas fa-folder"></i> Details</button>
+                    @if (item.AppointmentStatus != AppointmentModel.Status.Cancelled)
+                    {
+                        <button class="btn btn-danger" onclick="@("location.href='" + Url.Action("DeleteAppointment", "Appointment", new { id = item.AppointmentId }) + "'")"><i class="fas fa-trash-alt"></i>Cancel</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+

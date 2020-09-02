@@ -1,0 +1,14 @@
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\ClinicManagementSystemModels.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\ClinicManagementSystemModels.pdb
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\obj\Debug\ClinicManagementSystemModels.csproj.CoreCompileInputs.cache
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\obj\Debug\ClinicManagementSystemModels.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\obj\Debug\ClinicManagementSystemModels.pdb
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\System.Web.Helpers.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\System.Web.Mvc.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\System.Web.Razor.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\System.Web.WebPages.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\obj\Debug\ClinicManagementSystemModels.csproj.CopyComplete
+C:\Users\gmehndiratta\source\Workspaces\BOOTCAMP\2019\TEAM A\ApteanClinicManagementSystem\ClinicManagementSystemModels\obj\Debug\ClinicManagementSystemModels.csprojAssemblyReference.cache

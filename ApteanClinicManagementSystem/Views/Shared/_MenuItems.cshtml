@@ -1,0 +1,42 @@
+﻿@model IEnumerable<ClinicManagementSystemModels.Models.MenuItemsModel>
+
+<ul>
+
+    @{
+        foreach (var item in Model)
+        {
+            <li>
+                @{
+                    if (item.ChildMenuItems != null && item.ChildMenuItems.Count > 0)
+                    {
+                        string link = "#" + @item.Link;
+                        <a href="@link" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
+                            <span class="@item.Icon"></span>&nbsp;@item.Text
+                        </a>
+                        <ul id=@item.Link class="collapse">
+                            @{
+                                foreach (var subItem in item.ChildMenuItems)
+                                {
+                                    <li>
+                                        <a href="@subItem.Link">
+                                            <span class="@subItem.Icon"></span>&nbsp;@subItem.Text
+                                        </a>
+                                    </li>
+                                }
+
+                            }
+                        </ul>
+                    }
+                    else
+                    {
+                        <a href="@item.Link">
+                            <span class="@item.Icon"></span>&nbsp;@item.Text
+                        </a>
+                    }
+                }
+
+            </li>
+        }
+    }
+
+</ul>

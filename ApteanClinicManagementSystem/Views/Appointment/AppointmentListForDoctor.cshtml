@@ -1,0 +1,20 @@
+﻿@using ClinicManagementSystemModels.Models;
+@model IEnumerable<ClinicManagementSystemModels.Models.AppointmentModel>
+@{
+    ViewBag.Title = "Appointment List";
+}
+
+<ul class="nav nav-tabs">
+    <li class="active"><a data-toggle="tab" href="#All">All</a></li>
+    <li><a data-toggle="tab" href="#Upcoming">Upcoming</a></li>
+</ul>
+
+<div class="tab-content">
+    <br />
+    <div id="All" class="tab-pane fade in active">
+       @Html.Partial("_AppointmentList", Model)
+    </div>
+    <div id="Upcoming" class="tab-pane fade">
+        @{ Html.RenderAction("GetUpcomingAppointments", "Appointment"); }
+    </div>
+</div>

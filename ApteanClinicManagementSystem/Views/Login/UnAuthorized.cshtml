@@ -1,0 +1,25 @@
+﻿<html>
+@{
+    ViewBag.Title = "UnAuthorized";
+    Layout = null;
+}
+<head>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body style="left:50%;background-color:blanchedalmond;bottom:60%">
+        <div class="page-wrap d-flex flex-row align-items-center">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-12 text-center">
+                        <span style="font-size:250px;color:orange;font-family:'Berlin Sans FB'">401</span>
+                        <div class="mb-4 lead">You Are Not Authorized to Access this Page or Session Expired.</div>
+                        <div class="mb-4 lead">You Could Go Back or Login Again</div>
+                        <a href="~/Login/Logoff" class="btn btn-link">Back to Home</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+</body>
+</html>

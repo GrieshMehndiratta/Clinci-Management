@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A4F67CC4-C279-411E-9ED3-46C1C97561E7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClinicManagementDataLayer</RootNamespace>
+    <AssemblyName>ClinicManagementDataLayer</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+    <SccProjectName>SAK</SccProjectName>
+    <SccLocalPath>SAK</SccLocalPath>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccProvider>SAK</SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Helpers, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=3.0.0.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.3.0.50813.1\lib\net40\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.1.0.20105.408\lib\net40\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.1.0.20105.408\lib\net40\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Appointment.cs" />
+    <Compile Include="Context.cs" />
+    <Compile Include="InvoiceDataAccess.cs" />
+    <Compile Include="MedicalHistoryDataLayer.cs" />
+    <Compile Include="Medicine.cs" />
+    <Compile Include="GetUserDetails.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="PrescriptionDataAccess.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReportingDataAccess.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="bin\Debug\App.config" />
+    <None Include="bin\Debug\ClinicManagementSystemModels.dll.config" />
+    <None Include="obj\Debug\ClinicManagementDataLayer.csproj.CopyComplete" />
+    <None Include="obj\Debug\ClinicManagementDataLayer.csproj.CoreCompileInputs.cache" />
+    <None Include="obj\Debug\ClinicManagementDataLayer.csprojAssemblyReference.cache" />
+    <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bin\Debug\ClinicManagementDataLayer.dll" />
+    <Content Include="bin\Debug\ClinicManagementDataLayer.pdb" />
+    <Content Include="bin\Debug\ClinicManagementSystemModels.dll" />
+    <Content Include="bin\Debug\ClinicManagementSystemModels.pdb" />
+    <Content Include="bin\Debug\EntityFramework.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.dll" />
+    <Content Include="bin\Debug\EntityFramework.SqlServer.xml" />
+    <Content Include="bin\Debug\EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Cookies.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Cookies.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Authentication.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.Internal.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Cryptography.KeyDerivation.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.DataProtection.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.DataProtection.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.DataProtection.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Hosting.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Hosting.Server.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.Extensions.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.Extensions.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.Features.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.Features.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Http.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Identity.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Identity.EntityFrameworkCore.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.Identity.xml" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.WebUtilities.dll" />
+    <Content Include="bin\Debug\Microsoft.AspNetCore.WebUtilities.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Relational.dll" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.Relational.xml" />
+    <Content Include="bin\Debug\Microsoft.EntityFrameworkCore.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Memory.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Caching.Memory.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Binder.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.Binder.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Configuration.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.DependencyInjection.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.FileProviders.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Hosting.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Hosting.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Identity.Core.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Identity.Core.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Identity.Stores.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Identity.Stores.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.Abstractions.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Logging.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.ObjectPool.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.ObjectPool.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Options.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.Primitives.xml" />
+    <Content Include="bin\Debug\Microsoft.Extensions.WebEncoders.dll" />
+    <Content Include="bin\Debug\Microsoft.Extensions.WebEncoders.xml" />
+    <Content Include="bin\Debug\Microsoft.Net.Http.Headers.dll" />
+    <Content Include="bin\Debug\Microsoft.Net.Http.Headers.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.Cookies.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.Cookies.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.OAuth.dll" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.OAuth.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.Security.xml" />
+    <Content Include="bin\Debug\Microsoft.Owin.xml" />
+    <Content Include="bin\Debug\Microsoft.Win32.Registry.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.dll" />
+    <Content Include="bin\Debug\Newtonsoft.Json.xml" />
+    <Content Include="bin\Debug\Owin.dll" />
+    <Content Include="bin\Debug\Remotion.Linq.dll" />
+    <Content Include="bin\Debug\Remotion.Linq.xml" />
+    <Content Include="bin\Debug\System.Buffers.dll" />
+    <Content Include="bin\Debug\System.Buffers.xml" />
+    <Content Include="bin\Debug\System.Collections.Immutable.dll" />
+    <Content Include="bin\Debug\System.Collections.Immutable.xml" />
+    <Content Include="bin\Debug\System.ComponentModel.Annotations.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.dll" />
+    <Content Include="bin\Debug\System.Diagnostics.DiagnosticSource.xml" />
+    <Content Include="bin\Debug\System.Interactive.Async.dll" />
+    <Content Include="bin\Debug\System.Interactive.Async.xml" />
+    <Content Include="bin\Debug\System.Memory.dll" />
+    <Content Include="bin\Debug\System.Memory.xml" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.dll" />
+    <Content Include="bin\Debug\System.Numerics.Vectors.xml" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.dll" />
+    <Content Include="bin\Debug\System.Runtime.CompilerServices.Unsafe.xml" />
+    <Content Include="bin\Debug\System.Security.AccessControl.dll" />
+    <Content Include="bin\Debug\System.Security.Cryptography.Xml.dll" />
+    <Content Include="bin\Debug\System.Security.Permissions.dll" />
+    <Content Include="bin\Debug\System.Security.Principal.Windows.dll" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.dll" />
+    <Content Include="bin\Debug\System.Text.Encodings.Web.xml" />
+    <Content Include="obj\Debug\ClinicManagementDataLayer.csproj.FileListAbsolute.txt" />
+    <Content Include="obj\Debug\ClinicManagementDataLayer.dll" />
+    <Content Include="obj\Debug\ClinicManagementDataLayer.pdb" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="bin\Release\" />
+    <Folder Include="Models\" />
+    <Folder Include="obj\Debug\TempPE\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ClinicManagementSystemModels\ClinicManagementSystemModels.csproj">
+      <Project>{82a91253-9cde-4c86-8057-7ca24ea2047f}</Project>
+      <Name>ClinicManagementSystemModels</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

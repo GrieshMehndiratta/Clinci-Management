@@ -1,0 +1,40 @@
+﻿@model ClinicManagementSystemModels.Models.DoctorModel
+@{
+
+    var cookie = Request.Cookies[FormsAuthentication.FormsCookieName];
+    FormsAuthenticationTicket ticket = FormsAuthentication.Decrypt(cookie.Value);
+    ViewBag.Role = ticket.UserData.ToString();
+}
+@{
+    ViewBag.Title = "DoctorDetails";
+}
+
+
+<h2>Doctor Details</h2>
+<hr />
+<div class="col-md-offset-3 col-md-6 " style="padding-bottom:2%">
+    
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>@Html.DisplayNameFor(model => model.UserDetails.FullName):</b> @Html.DisplayFor(model => model.UserDetails.FullName)
+        </li>
+
+        <li class="list-group-item">
+            <b>@Html.DisplayNameFor(model => model.Specialization):</b> @Html.DisplayFor(model => model.Specialization)
+        </li>
+
+        <li class="list-group-item">
+            <b>@Html.DisplayNameFor(model => model.Fee):</b> @Html.DisplayFor(model => model.Fee)
+        </li>
+        <li class="list-group-item">
+            <b>Phone:</b> @Html.DisplayFor(model => model.UserDetails.PhoneNo)
+        </li>
+
+    </ul>
+    @if (ViewBag.Role == "Admin" && Model.UserDetails.AccountStatus == false)
+    {
+        <button class="btn btn-primary" onclick="@("location.href='" + Url.Action("EditDoctor", "CreateUsers", new { id = Model.DoctorId }) + "'")"><i class="far fa-edit"></i>Edit</button>
+        <button class="btn btn-danger" onclick="@("location.href='" + Url.Action("DeleteDoctorConfirmed", "CreateUsers", new { id = Model.DoctorId }) + "'")"><i class="fas fa-trash-alt"></i> Delete</button>
+    }
+    <input type="button" value="Back" class="btn btn-default" onclick="@("location.href='" + Url.Action("DoctorList", "CreateUsers") + "'")" />
+</div>

@@ -1,0 +1,24 @@
+﻿@model ClinicManagementSystemModels.Models.MedicineModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Medicince Details</h2>
+<hr />
+<div class="col-md-offset-3 col-md-6 " style="padding-bottom:2%">
+
+    <ul class="list-group">
+        <li class="list-group-item">
+            <b>@Html.DisplayNameFor(model => model.MedicineName):</b> @Html.DisplayFor(model => model.MedicineName)
+        </li>
+
+        <li class="list-group-item">
+            <b>@Html.DisplayNameFor(model => model.MedicineCost):</b> @Html.DisplayFor(model => model.MedicineCost)
+        </li>
+
+    </ul>
+    <input type="button" value="Back" class="btn btn-default " onclick="@("location.href='" + Url.Action("Index", "Medicine") + "'")" />
+</div>
+ 
+

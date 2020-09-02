@@ -1,0 +1,119 @@
+﻿@model ApteanClinicManagementSystem.Models.DoctorViewModel
+
+@{
+    ViewBag.Title = "AddDoctor";
+}
+
+<h2>Add Doctor</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.FullName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.FullName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Full Name" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.FullName, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.Gender, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EnumDropDownListFor(model => model.UserDetails.Gender, htmlAttributes: new { @class = "form-control", placeholder = "Select the Gender" })
+            @Html.ValidationMessageFor(model => model.UserDetails.Gender, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.Address, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.Address, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Address" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.Address, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.City, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EnumDropDownListFor(model => model.UserDetails.City, htmlAttributes: new { @class = "form-control", placeholder = "Select the City" })
+            @Html.ValidationMessageFor(model => model.UserDetails.City, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.PhoneNo, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.PhoneNo, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Phone Number" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.PhoneNo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.EmailId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.EmailId, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Email Id" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.EmailId, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.UserName, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter User Name" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.UserName, "", new { @class = "text-danger" })
+            
+        </div>
+    </div>
+    <div style="color: red">
+        @ViewBag.ErrorMessage
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.Password, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.Password, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Password" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.Password, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.UserDetails.ConfirmPassword, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.UserDetails.ConfirmPassword, new { htmlAttributes = new { @class = "form-control", placeholder = "Confirm Password" } })
+            @Html.ValidationMessageFor(model => model.UserDetails.ConfirmPassword, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Fee, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EditorFor(model => model.Fee, new { htmlAttributes = new { @class = "form-control", placeholder = "Enter Fee Per Appointment" } })
+            @Html.ValidationMessageFor(model => model.Fee, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Specialization, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-3">
+            @Html.EnumDropDownListFor(model => model.Specialization, htmlAttributes: new { @class = "form-control", placeholder = "Select from list" })
+            @Html.ValidationMessageFor(model => model.Specialization, "", new { @class = "text-danger" })
+        </div>
+        `
+    </div>
+    <hr />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-success" />
+        </div>
+    </div>
+</div>
+}
+

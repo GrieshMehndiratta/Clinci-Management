@@ -1,0 +1,57 @@
+﻿@model ApteanClinicManagementSystem.Models.StatisticsModelView
+<META Http-Equiv="Cache-Control" Content="no-cache" />
+<META Http-Equiv="Pragma" Content="no-cache" />
+<META Http-Equiv="Expires" Content="0" />
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+
+
+@Html.AntiForgeryToken()
+    
+
+    <div class="main-div" >
+        <div  class="div-card">
+            <div class="inner-top">
+                <p class ="text-color upper-text">@Model.TotalPatientsCount</p>
+                <i class="fas fa-user-injured custom-dashboard-icon" ></i>
+            </div>
+            <div class="inner-bottom">
+                <p class="lower-text">Total Patients</p>
+                <p class="text-color"><i>@Model.PatientsCount</i> Added From Today</p>
+            </div>
+        </div>
+        <div  class="div-card">
+            <div class="inner-top">
+                <p class="text-color upper-text">@Model.TotalAppoinmentsCount</p>
+                <i class="far fa-calendar-check custom-dashboard-icon" ></i>
+            </div>
+            <div class="inner-bottom">
+                <p class="lower-text">Total Appointments</p>
+                <p class="text-color"><i>@Model.AppointmentsCount</i> For Today</p>
+            </div>
+        </div>
+        <div  class="div-card">
+            <div class="inner-top">
+                <p class ="text-color upper-text">@Model.TotalDoctorsCount</p>
+                <i class="fas fa-user-md custom-dashboard-icon"></i>
+                
+            </div>
+            <div class="inner-bottom">
+                <p class="lower-text">Total Doctors</p>
+                <p class="text-color"><i>@Model.DoctorsCount</i> Doctor Available</p>
+            </div>
+        </div>
+        <div class="div-card">
+            <div class="inner-top">
+                <p class="text-color upper-text">@Model.TotalUsersCount</p>
+                <i class="fas fa-users custom-dashboard-icon" ></i>
+            </div>
+            <div class="inner-bottom">
+                <p class="lower-text">Total Users</p>
+                <p class="text-color"><i>@Model.ActiveUsers</i> Active Accounts</p>
+            </div>
+            
+        </div>
+    </div>
